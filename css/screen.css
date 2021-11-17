@@ -2,6 +2,17 @@
 #FONTS
 \*------------------------------------*/
 
+@font-face {
+    font-family: "source-sans-pro";
+    font-weight: 700;
+    src: url("../fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf") format("woff2")
+}
+
+@font-face {
+    font-family: "source-sans-proF";
+    font-weight: 600;
+    src: url("../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf") format("woff2")
+}
 
 /*------------------------------------*\
 #Variables
@@ -11,18 +22,19 @@
     /* colors */
     --global-color-alpha-light: #A3A0FB80;
     --global-color-alpha: #A3A0FB;
+    --global-color-logo: #A5A4BF;
 
     --global-color-beta: #3B86FF;
 
-    --global-color-neutral-xxxx-light: #F0F0F7;
-    --global-color-neutral-xxx-light: #EBEBF2;
-    --global-color-neutral-xx-light: #D7DAE2;
-    --global-color-neutral-x-light: #BCBCCB;
-    --global-color-neutral-light: #A5A4BF;
+    --global-color-neutral-xxxx-light: #FFFFFF;
+    --global-color-neutral-xxx-light: #f0f0f7;
+    --global-color-neutral-xx-light: #ebebf2;
+    --global-color-neutral-x-light: #d7dae2;
+    --global-color-neutral-light: #bcbccb;
     --global-color-neutral: #808495;
-    --global-color-neutral-dark: #4D4F5C;
-    --global-color-neutral-x-dark: #43425D;
-    --global-color-neutral-xx-dark: #3B3B53;
+    --global-color-neutral-dark: #4d4f5c;
+    --global-color-neutral-x-dark: #43425d;
+    --global-color-neutral-xx-dark: #3b3b53;
 
     /* Shadows */
 
@@ -51,7 +63,7 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
     font-family: "source-sans-pro", Helvetica, arial, sans-serif;
     color: var(--global-color-neutral-dark);
@@ -115,20 +127,21 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 10);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: calc(var(--global-baseline) * 8);
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 6);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h4,
@@ -136,8 +149,8 @@ h5,
 h6 {
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 5);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 p,
@@ -147,12 +160,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: 0;
 }
 
 li ul,
@@ -192,6 +205,7 @@ a {
     outline-color: var(--color-alpha);
     outline-width: medium;
     outline-offset: 2px;
+    text-decoration: none;
 }
 
 a:visited,
@@ -313,6 +327,25 @@ input::placeholder {
 */
 
 /*
+    Component: icon
+*/
+
+.c-main-nav__icon{
+    fill: var(--global-color-logo);
+    width: 14px;
+    height: 16px;
+    margin: 0 11px 0 0;
+}
+
+/*
+    Component: main
+*/
+
+.c-main-nav__link{
+    display: inline-flex;
+}
+
+/*
     Component: App
 */
 
@@ -322,6 +355,16 @@ input::placeholder {
 
 .c-app__logo {
     background-color: var(--global-color-neutral-xx-dark);
+    box-shadow: 5px;
+}
+
+.c-app__logo h1{
+    color: var(--global-color-neutral-xxxx-light);
+    font-size: 15px;
+    line-height: 21px;
+    padding: 26px 0 23px 20px;
+    margin: 0;
+    height: 70px;
 }
 
 .c-app__topbar {
@@ -330,6 +373,16 @@ input::placeholder {
 
 .c-app__sidebar {
     background-color: var(--global-color-neutral-x-dark);
+}
+
+.c-app__sidebar li{
+    list-style: none;
+    height: 53px;
+    padding: 18px 18px 19px 25px;
+}
+
+.c-app__sidebar a{
+    color: var(--global-color-neutral-xxxx-light);
 }
 
 @media (min-width: 992px) {
