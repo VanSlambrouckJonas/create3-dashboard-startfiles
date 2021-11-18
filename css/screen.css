@@ -385,6 +385,15 @@ input::placeholder {
     Component: App
 */
 
+.c-card__header{
+    display: inline-flex; 
+    width: 100%;
+}
+
+/*
+    Component: App
+*/
+
 .c-app {
     height: 100vh;
 }

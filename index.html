@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="https://use.typekit.net/oij0mrt.css">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/screen.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+        <script src="scripts/app.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -154,14 +157,15 @@
                     Overview
                 </h2>
                 <div class="c-dashboard__items">
-                    <div class="c-grid-item u-item-row1-13column1-1">
+                    <div class="c-grid-item u-item-row1-13column1-1">1</div>
+                    <div class="c-grid-item u-item-row2-3column1-7">
                         <div class="c-card">
-                            <div class="c-card__header" style="display: inline-flex; width: 100%;">
+                            <div class="c-card__header">
                                 <h4>
                                     header
                                 </h2>
                                 <span class="c-custom-select">
-                                    <select class="c-input c-custom-select__input" class="" name="select1" id="select1">
+                                    <select class="c-input c-custom-select__input js-selection">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="mercedes">Mercedes</option>
@@ -174,11 +178,10 @@
                                 </span>
                             </div>
                             <div class="c-card__body">
-                                chart
+                                <canvas class="js-graph" width="3" height="1"></canvas>
                             </div>
                         </div>
                     </div>
-                    <div class="c-grid-item u-item-row2-3column1-7">2</div>
                     <div class="c-grid-item u-item-row2-3column7-13">3</div>
                     <div class="c-grid-item u-item-row3-5column1-5">4</div>
                     <div class="c-grid-item u-item-row3-4column5-13">5</div>
