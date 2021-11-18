@@ -38,18 +38,31 @@
 
     /* Shadows */
 
-    /* border radius */
+    /* borders */
+    --global-borderRadius: 3px;
+    --global-borderWidth: 1px;
 
     /* transitions */
     --transition-alpha: .1s;
 
     /* Whitespace */
     --global-baseline: 5px;
+    --global-whitespace: calc(var(--global-baseline) * 3);
     --global-whitespace-xs: calc(var(--global-baseline) * 2);
     --global-whitespace-sm: calc(var(--global-baseline) * 3);
     --global-whitespace-md: calc(var(--global-baseline) * 4);
     --global-whitespace-lg: calc(var(--global-baseline) * 5);
     --global-whitespace-xl: calc(var(--global-baseline) * 6);
+
+    /* forms */
+    --global-placeholder-color: var(--global-color-neutral-x-light);
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
 /*------------------------------------*\
@@ -373,13 +386,11 @@ input::placeholder {
 */
 
 .c-app {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .c-app__logo {
     background-color: var(--global-color-neutral-xx-dark);
-    position: fixed;
-    width: 260px;
 }
 
 .c-app__logo h1{
@@ -393,18 +404,12 @@ input::placeholder {
 
 .c-app__topbar {
     background-color: white;
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    left: 260px;
-    order: 0;
 }
 
 .c-app__sidebar {
     background-color: var(--global-color-neutral-x-dark);
-    position: fixed;
-    top: 70px;
-    width: 260px;
+    overflow: auto;
+    height: auto;
 }
 
 .c-app__sidebar li{
@@ -418,11 +423,8 @@ input::placeholder {
 }
 
 .c-app__main{
-    position: relative;
-    width: 100%;
-    left: 260px;
-    top: 70px;
-    order: 6;
+    overflow: auto;
+    height: auto;
 }
 
 @media (min-width: 992px) {
@@ -433,9 +435,111 @@ input::placeholder {
     }
 }
 
+
+.c-form-field {
+    display: inline-block;
+    align-items: center;
+}
+
+.c-form-field--option {
+    display: flex;
+    align-items: center;
+}
+
+.c-form-field-delete-margin{
+    margin: 0 0 0 0;
+}
+
+.c-custom-select {
+    display: block;
+    position: relative;
+    width: 130px;
+    margin: 0 0px 0 auto;
+}
+
+.c-custom-select__symbol {
+    width: var(--global-whitespace);
+    height: var(--global-whitespace);
+    position: absolute;
+    top: calc(var(--global-whitespace) / 2);
+    right: calc(var(--global-whitespace) / 2);
+    pointer-events: none;
+    fill: var(--global-color-neutral-x-light);
+}
+
+.c-input {       
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: var(--global-borderWidth) solid var(--input-borderColor, var(--global-input-borderColor));
+    /* border: 1px solid var(--global-color-neutral-xxx-light); */
+    border-radius: var(--global-borderRadius);
+    background-color: var(--global-input-backgroundColor);
+    color: var(--global-input-color);
+    font-family: inherit;
+    font-size: 16px;
+    line-height: calc(var(--global-baseline) * 3);
+    padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+    outline: none;
+    transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+}
+
+.c-input:hover {
+    border-color: var(--global-input-hover-borderColor);
+}
+
+.c-input:focus,
+.c-input:active {
+    border-color: var(--global-input-focus-borderColor);
+    box-shadow: var(--global-input-focus-boxShadow);
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
+
+/*
+    Utilities: color
+    ---
+    Utility classes to put specific colors onto elements
+*/
+
+.u-item-row1-13column1-1{
+    grid-area: 1/1/2/13;
+}
+
+.u-item-row2-3column1-7{
+    grid-area: 2/1/3/7;
+}
+
+.u-item-row2-3column7-13{
+    grid-area: 2/7/3/13;
+}
+
+.u-item-row3-5column1-5{
+    grid-area: 3/1/5/5;
+}
+
+.u-item-row3-4column5-13{
+    grid-area: 3/5/4/13;
+}
+
+.u-item-row4-5column5-9{
+    grid-area: 4/5/5/9;
+}
+
+.u-item-row4-5column9-13{
+    grid-area: 4/9/5/13;
+}
+
+.u-item-row5-6column1-5{
+    grid-area: 5/1/6/5;
+}
+
+.u-item-row5-6column5-13{
+    grid-area: 5/5/6/13;
+}
 
 /*
     Utilities: color
